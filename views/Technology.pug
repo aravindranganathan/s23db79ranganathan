@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  - let results=[{Tech_Name: "Java",Tech_Type:"Modern",Tech_Age:25},{Tech_Name: "Python",Tech_Type:"Modern",Tech_Age:30},{Tech_Name: "Kotlin",Tech_Type:"Latest_Trend",Tech_Age:10}]
+  div.container-fluid 
+      div.row
+          each item in results
+              div(class='col-sm-2')
+                  p Name: #{item.Tech_Name}
+                  p Type: #{item.Tech_Type}
+                  p Age: #{item.Tech_Age}
+            
+  
