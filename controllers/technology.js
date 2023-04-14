@@ -1,8 +1,15 @@
 var technology = require('../models/technology');
 // List of all technologys
-exports.technology_list = function(req, res) {
- res.send('NOT IMPLEMENTED: technology list');
-};
+exports.technology_list = async function(req, res) {
+    try{
+    theTechnologys = await Technology.find();
+    res.send(theTechnologys);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+   };
 // for a specific technology.
 exports.technology_detail = function(req, res) {
  res.send('NOT IMPLEMENTED: technology detail: ' + req.params.id);
