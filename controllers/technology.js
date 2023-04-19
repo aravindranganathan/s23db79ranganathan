@@ -62,18 +62,16 @@ exports.technology_list = async function(req, res) {
 
    // VIEWS
 // Handle a show all view
-exports.costume_view_one_Page = async function(req, res) {
-    console.log("single view for id " + req.query.id)
-    try{
-    result = await Costume.findById( req.query.id)
-    res.render('costumedetail',
-   { title: 'Costume Detail', toShow: result });
-    }
-    catch(err){
-    res.status(500)
-    res.send(`{'error': '${err}'}`);
-    }
-   };
+exports.technology_view_all_Page = async function(req, res) {
+  try{
+  thetechnology = await technology.find();
+  res.render('technology', { title: 'Technology Search Results', results: thetechnology });
+  }
+  catch(err){
+  res.status(500);
+  res.send(`{"error": ${err}}`);
+  }
+  };
    // Handle technology create on POST.
 exports.technology_create_post = async function(req, res) {
     console.log(req.body)
@@ -93,5 +91,17 @@ exports.technology_create_post = async function(req, res) {
     catch(err){
     res.status(500);
     res.send(`{"error": ${err}}`);
+    }
+   };
+   exports.technology_view_one_Page = async function(req, res) {
+    console.log("single view for id " + req.query.id)
+    try{
+    result = await technology.findById( req.query.id)
+    res.render('technologydetail',
+   { title: 'Technology Detail', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
     }
    };

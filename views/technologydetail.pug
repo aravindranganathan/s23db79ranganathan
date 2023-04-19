@@ -1,20 +1,21 @@
 extends layout
+
 block content
  h1= title
- - let costumeid = toShow._id
- - let costume_type = toShow.costume_type
- - let costumecost = toShow.cost
- - let costumesize = toShow.size
- div
- div.row
- div(class='costumeAttr mr-3') Costume ID is:
- div #{costumeid}
- div.row
- div(class='costumeAttr mr-3') Costume Type is:
- div #{costume_type}
- div.row
- div(class='costumeAttr mr-3') Costume Size is:
- div #{costumesize}
- div.row
- div(class='costumeAttr mr-3') Costume Cost is:
- div #{costumecost}
+ - let Tech_id = toShow._id
+ - let Tech_Type = toShow.Tech_Type
+ - let Tech_Age = toShow.Tech_Age
+ - let Tech_Name = toShow.Tech_Name
+    div
+        div.row
+            div(class='technologyAttr mr-3') Technology id is:
+            div #{Tech_id}
+        div.row
+            div(class='technologyAttr mr-3') Technology Name is:
+            div #{Tech_Name}
+        div.row
+            div(class='technologyAttr mr-3') Technology Type is:
+            div #{Tech_Type}
+        div.row
+            div(class='technologyAttr mr-3') Technology Age is:
+            div #{Tech_Age}
