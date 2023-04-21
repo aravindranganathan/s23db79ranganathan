@@ -1,0 +1,40 @@
+extends layout
+block content
+ h1= title
+  - let technologyid = toShow._id
+  - let Tech_type = toShow.Tech_type
+  - let Tech_name = toShow.Tech_name
+  - let Tech_age = toShow.Tech_age
+
+ div.row(class='mb-2')
+  div.mr-1 ID is
+  div #{technologyid}
+ - let actionid = "/resource/technology/" + technologyid
+ form(id='TechnologyForm', action="/resource/technology", method="PUT")
+  div.form-group
+    label.technologyAttr(for='Tech_Name') Technology name
+    input#Tech_Name(type='text', name='Tech_Name' value='Tech_Name')
+  div.form-group
+    label.technologyAttr(for='Tech_Type') Technology type
+    input#Tech_Type(type='text', name='Tech_Type' value='Tech_Type')
+  div.form-group
+    label.technologyAttr(for='Tech_Age') Technology age
+    input#Tech_Age(type='number', name='Tech_Age' value='Tech_Age')
+  input(type="submit")
+ script.
+  document.forms['TechnologyForm'].addEventListener('submit', (event) => {
+   event.preventDefault();
+   // TODO do something here to show user that form is being submitted
+   fetch(event.target.action, {
+    method: 'PUT',
+    body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+   }).then((resp) => {
+    return resp.json(); // or resp.text() or whatever the server sends
+   }).then((body) => {
+    alert("Update succeded")
+    // TODO handle body
+   }).catch((error) => {
+    // TODO handle error
+    alert("Update failed " + error )
+   });
+  });
