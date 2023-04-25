@@ -105,3 +105,26 @@ exports.technology_create_post = async function(req, res) {
     res.send(`{'error': '${err}'}`);
     }
    };
+   exports.technology_create_Page = function(req, res) {
+    console.log("create view")
+    try{
+    res.render('technologycreate', { title: 'Technology Create'});
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+   };
+   // Handle building the view for updating a costume.
+// query provides the id
+   exports.technology_update_Page = async function(req, res) {
+    console.log("update view for item "+req.query.id)
+    try{
+    let result = await Technology.findById(req.query.id)
+    res.render('technologyupdate', { title: 'Technology Update', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+   };
