@@ -1,21 +1,20 @@
 extends layout
-
 block content
  h1= title
- - let Tech_id = toShow._id
- - let Tech_Type = toShow.Tech_Type
- - let Tech_Age = toShow.Tech_Age
- - let Tech_Name = toShow.Tech_Name
-    div
-        div.row
-            div(class='technologyAttr mr-3') Technology id is:
-            div #{Tech_id}
-        div.row
-            div(class='technologyAttr mr-3') Technology Name is:
-            div #{Tech_Name}
-        div.row
-            div(class='technologyAttr mr-3') Technology Type is:
-            div #{Tech_Type}
-        div.row
-            div(class='technologyAttr mr-3') Technology Age is:
-            div #{Tech_Age}
+ - let technologyid = toShow._id
+ - let technology_type = toShow.technology_type
+ - let technology_name = toShow.technology_name
+ - let technology_age = toShow.technology_age
+ div
+ div.row
+ div(class='technologyAttr mr-3') Technology ID is:
+ div #{technologyid}
+ div.row
+ div(class='technologyAttr mr-3') Technology Name is:
+ div #{technology_name}
+ div.row
+ div(class='technologyAttr mr-3') Technology Type is:
+ div #{technology_type}
+ div.row
+ div(class='technologyAttr mr-3') Technology Age is:
+ div #{technology_age}
